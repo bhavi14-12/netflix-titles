@@ -21,12 +21,6 @@ def main():
 
     
 
-    # Top 10 Genres
-    genres = df["listed_in"].str.split(", ").explode().value_counts().head(10)
-    fig2 = px.bar(y=genres.index, x=genres.values, orientation='h', 
-                  labels={'x': 'Count', 'y': 'Genre'},
-                  title="Top 10 Genres", color=genres.values)
-    st.plotly_chart(fig2)
 
     # Release Trend Over Years
     fig3 = px.histogram(df, x='release_year', nbins=15, title="Release Trend Over Years", color_discrete_sequence=["red"])
