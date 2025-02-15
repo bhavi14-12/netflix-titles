@@ -19,13 +19,7 @@ def main():
     # Filter dataset
     filtered_df = df if selected_type == "All" else df[df["type"] == selected_type]
 
-    # Movies vs TV Shows
-    type_count = df["type"].value_counts()
-    fig1 = px.bar(type_count, x=type_count.index, y=type_count.values, 
-                  labels={'x': 'Type', 'y': 'Count'}, 
-                  title="Movies vs. TV Shows", 
-                  color=type_count.index)
-    st.plotly_chart(fig1)
+    
 
     # Top 10 Genres
     genres = df["listed_in"].str.split(", ").explode().value_counts().head(10)
